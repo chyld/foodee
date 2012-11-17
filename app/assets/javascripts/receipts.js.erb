@@ -1,0 +1,25 @@
+$(function(){
+
+  $('#add_item').click(add_item);
+
+});
+
+function add_item()
+{
+  div = $('<div>');
+  div.addClass('field');
+
+  div.append('<input type="text" name="receipt[orders][][amount]" />');
+  var select = $('<select>');
+  select.attr('name', 'receipt[orders][][dish]')
+
+  <% Dish.all.each do |dish| %>
+    var option = $('<option>');
+    option.attr('value', '<%= dish.id %>')
+    option.text('<%= dish.name %>');
+    select.append(option);
+  <% end %>
+
+  div.append(select);
+  $('#orders').append(div);
+}

@@ -1,0 +1,10 @@
+<h1>Dish</h1>
+<div class='dish'>
+  <p><%= @dish.restaurant.try(:name) %></p>
+  <p><%= @dish.name %> (<%= number_to_currency @dish.cost %>)</p>
+  <p><%= image_tag @dish.photo %></p>
+</div>
+<div class='links'>
+  <%= link_to "Edit", edit_dish_path(@dish) %> ::
+  <%= link_to "Delete", @dish, :method => :delete %>
+</div>

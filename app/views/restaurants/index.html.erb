@@ -1,0 +1,7 @@
+<h1>Restaurants</h1>
+<% @restaurants.each do |r| %>
+  <div class='restaurant'>
+    <p><%= link_to r.name, r %> (<%= r.cuisine %>)</p>
+    <p><%= r.address %></p>
+  </div>
+<% end %>

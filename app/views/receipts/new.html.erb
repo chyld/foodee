@@ -1,0 +1,15 @@
+<%= form_for @receipt do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :restaurant_id %>
+    <%= f.select :restaurant_id, Restaurant.all.map{|r| [r.name, r.id]} %>
+  </div>
+  <div class="field">
+    <input type="button" id="add_item" value="Add Item to Order" />
+  </div>
+  <div id="orders"></div>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,30 @@
+<%= render :partial => 'shared/errors', :locals => {:object => @dish} %>
+
+<%= form_for @dish, :html => {:multipart => true} do |f| %>
+  <div class='field'>
+    <%= f.label :restaurant_id %>
+    <%= f.select :restaurant_id, Restaurant.all.map{|r| [r.name, r.id]} %>
+  </div>
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class='field'>
+    <%= f.label :cost %>
+    <%= f.number_field :cost %>
+  </div>
+  <div class='field'>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+    <%= f.hidden_field :photo_cache %>
+  </div>
+  <div class='field'>
+    <%= f.text_field :remote_photo_url %>
+  </div>
+  <div class='field'>
+    <%= image_tag(@dish.photo_url) if @dish.photo? %>
+  </div>
+  <div class='field'>
+    <%= f.submit %>
+  </div>
+<% end %>
