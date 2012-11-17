@@ -14,6 +14,5 @@
 /log/*.log
 /tmp
 
-/config/initializers/carrierwave_init.rb
 /config/database.yml
 
